@@ -4,7 +4,6 @@ public class International extends NonResident{
 
     private boolean isStudyAbroad;
 
-
     /**
      * This is a constructor that takes in 5 parameters for a student.
      *
