@@ -61,8 +61,8 @@ public class Roster {
         for (int x = 0; x < size; x++) {
             if (roster[x] == null) {
                 // Check if credits are valid
-                if (student.validCredits(student.getCreditCompleted()) == false) {
-                    badCredit(student.validCredits(student.getCreditCompleted()));
+                if (student.isValid(student.getCreditCompleted()) == false) {
+                    badCredit(student.isValid(student.getCreditCompleted()));
                     return false;
                 }
                 // Check if major is valid
