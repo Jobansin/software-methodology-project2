@@ -14,7 +14,13 @@ public class TriState extends NonResident{
      * @param credits
      * @author David Harianto, Joban Singh
      */
-    public TriState(String first, String last, String birth, String m, double credits) {
+    public TriState(String first, String last, String birth, String m, double credits, String state) {
         super(first, last, birth, m, credits);
+        this.state = state.toUpperCase();
+    }
+
+    public boolean validState() {
+        return (state.equals("NY") || state.equals("CT"));
+
     }
 }

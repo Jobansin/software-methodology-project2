@@ -68,7 +68,7 @@ public abstract class Student implements Comparable<Student> {
      @author David Harianto, Joban Singh
      **/
     public boolean isValid(int creditEnrolled) { // Check if the credits are valid, must not be negative
-        return (creditEnrolled > 0);
+        return (creditEnrolled >= 0);
     } //polymorphism
 
     public boolean changeMajor(Major m) {

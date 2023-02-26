@@ -18,8 +18,8 @@ public class International extends NonResident{
         super(first, last, birth, m, credits);
         isStudyAbroad = false;
     }
-    public International(String first, String last, String birth, String m, double credits, boolean studyAbroad) {
+    public International(String first, String last, String birth, String m, double credits, String studyAbroad) {
         super(first, last, birth, m, credits);
-        isStudyAbroad = studyAbroad;
+        isStudyAbroad = Boolean.parseBoolean(studyAbroad);
     }
 }

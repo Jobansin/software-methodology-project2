@@ -82,7 +82,7 @@ public class Roster {
                     return false;
                 } else {
                     roster[x] = student;
-                    studentAdded(student);
+                    //studentAdded(student);
                     break;
                 }
             }
