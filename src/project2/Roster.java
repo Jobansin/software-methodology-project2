@@ -340,8 +340,8 @@ public class Roster {
             System.out.println("Student roster is empty!");
         } else {
             if (lastStudent() > 0) {
-                for (int i = 0; i < lastStudent() + 1; i++) {
-                    for (int j = 1; j < lastStudent(); j++) {
+                for (int i = 0; i <= lastStudent(); i++) {
+                    for (int j = 1; j <= lastStudent(); j++) {
                         if (roster[j - 1].compareTo(roster[j]) > 0) {
                             Student temporary = roster[j - 1];
                             roster[j - 1] = roster[j];
@@ -369,8 +369,8 @@ public class Roster {
             System.out.println("Student roster is empty!");
         } else {
             if (lastStudent() > 0) {
-                for (int i = 0; i < lastStudent() + 1; i++) {
-                    for (int j = 1; j < lastStudent(); j++) {
+                for (int i = 0; i <= lastStudent(); i++) {
+                    for (int j = 1; j <= lastStudent(); j++) {
                         if (roster[j - 1].getMajor().getSchool().compareTo(roster[j].getMajor().getSchool()) > 0) {
                             Student temporary = roster[j - 1];
                             roster[j - 1] = roster[j];
@@ -411,8 +411,8 @@ public class Roster {
             System.out.println("Student roster is empty!");
         } else {
             if (lastStudent() > 0) {
-                for (int i = 0; i < lastStudent() + 1; i++) {
-                    for (int j = 1; j < lastStudent(); j++) {
+                for (int i = 0; i <= lastStudent() ; i++) {
+                    for (int j = 1; j <= lastStudent(); j++) {
                         if (roster[j - 1].getStanding().compareTo(roster[j].getStanding()) > 0) {
                             Student temporary = roster[j - 1];
                             roster[j - 1] = roster[j];

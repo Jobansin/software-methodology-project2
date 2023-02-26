@@ -25,12 +25,7 @@ public class Resident extends Student{
 
     @Override
     public boolean isResident() {
-        return false;
+        return true;
     }
 
-
-    @Override
-    public int compareTo(Student o) {
-        return 0;
-    }
 }
