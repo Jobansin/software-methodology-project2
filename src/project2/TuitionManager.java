@@ -69,6 +69,7 @@ public class TuitionManager {
      **/
     public Roster readFile(String file) {
         Roster roster = new Roster();
+
         try {
             Scanner scanner = new Scanner(new File("src/" + file));
             while(scanner.hasNextLine()) {
