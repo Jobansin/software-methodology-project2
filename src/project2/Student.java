@@ -162,8 +162,21 @@ public abstract class Student implements Comparable<Student> {
         return this.profile.compareTo(s.profile);
     }
 
+    /**
+     An abstract method that returns the tuition due for a given student.
+     @author David Harianto, Joban Singh
+     **/
     public abstract double tuitionDue(int creditsEnrolled); //polymorphism
+
+    /**
+     An abstract method that returns whether a given student is a resident or not.
+     @author David Harianto, Joban Singh
+     **/
     public abstract boolean isResident(); //polymorphism
 
+    /**
+     An abstract method that returns a string of the type of student that they are (i.e. Resident, Non-Resident, etc).
+     @author David Harianto, Joban Singh
+     **/
     public abstract String typeStudent();
 }

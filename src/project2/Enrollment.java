@@ -102,6 +102,10 @@ public class Enrollment {
         return null;
     }
 
+    /**
+     This method changes the credits enrolled for a given student.
+     @author David Harianto, Joban Singh
+     **/
     public void changeCredit(EnrollStudent enrollStudent, int credits){
         if (!isEmpty()) {
             for (int x = 0; x < size; x++) {

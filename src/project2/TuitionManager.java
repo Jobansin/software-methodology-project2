@@ -105,6 +105,10 @@ public class TuitionManager {
         return null;
     }
 
+    /**
+     Method that accepts user input and based on the input provided adds a child class of student to the roster array.
+     @author David Harianto, Joban Singh
+     **/
     public Roster addStudents(Roster students, String studentType, StringTokenizer list) {
         try {
             String first = list.nextToken();
@@ -158,6 +162,11 @@ public class TuitionManager {
         catch(NoSuchElementException e) { System.out.println("Missing data in line command."); }
         return students;
     }
+
+    /**
+     Method that adds a student to the Enrollment array.
+     @author David Harianto, Joban Singh
+     **/
     public Enrollment enrollStudents(Roster roster, Enrollment enrollment, StringTokenizer list) {
         try {
             Resident temp = new Resident(list.nextToken(), list.nextToken(), list.nextToken());
@@ -191,6 +200,10 @@ public class TuitionManager {
         return enrollment;
     }
 
+    /**
+     Method that drops a student from the Enrollment array.
+     @author David Harianto, Joban Singh
+     **/
     public Enrollment dropStudents(Roster roster, Enrollment enrollment, StringTokenizer list) {
         try {
             EnrollStudent temp = new EnrollStudent((new Profile(list.nextToken(), list.nextToken(), new Date(list.nextToken()))), 0);
@@ -204,6 +217,10 @@ public class TuitionManager {
         return enrollment;
     }
 
+    /**
+     Method that sets the scholarship amount to a given Resident object.
+     @author David Harianto, Joban Singh
+     **/
     public Enrollment setScholarship(Roster roster, Enrollment enrollment, StringTokenizer list) {
         try {
             Resident temp = new Resident(list.nextToken(), list.nextToken(), list.nextToken());
