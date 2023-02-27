@@ -1,5 +1,7 @@
 package project2;
 
+import java.text.DecimalFormat;
+
 /**
  Represents a Enrollment object which holds an array of EnrollStudent
  @author David Harianto, Joban Singh
@@ -130,6 +132,27 @@ public class Enrollment {
             }
         }
         return true;
+    }
+
+    /**
+     This method prints the tuition due for enrolled students.
+     @author David Harianto, Joban Singh
+     **/
+    public void printTuition(Roster roster) {
+        if(isEmpty())
+            System.out.println("Enrollment is empty!");
+        else {
+            System.out.println("** Tuition due **");
+            for (int i = 0; i < size; i++) {
+                if (enrollStudents[i] != null) {
+                    DecimalFormat d = new DecimalFormat("'$'0.00");
+                    Student temp = roster.getStudent(new Resident(enrollStudents[i].getProfile().getFirstname(),
+                            enrollStudents[i].getProfile().getLastname(), enrollStudents[i].getProfile().getDob().toString()));
+                    System.out.println(enrollStudents[i] + ": tuition due: " + d.format(temp.tuitionDue(enrollStudents[i].getCreditsEnrolled())));
+                }
+            }
+            System.out.println("* end of tuition due *");
+        }
     }
 
     /**

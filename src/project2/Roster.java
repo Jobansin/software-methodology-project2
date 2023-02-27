@@ -1,4 +1,7 @@
 package project2;
+
+import java.text.DecimalFormat;
+
 /**
  Represents a Roster object which holds an array of Students
  @author David Harianto, Joban Singh
@@ -342,7 +345,6 @@ public class Roster {
         }
 
     }
-
 
     /**
      * This method prints the roster sorted by profile.

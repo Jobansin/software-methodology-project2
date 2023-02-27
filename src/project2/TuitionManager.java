@@ -49,9 +49,7 @@ public class TuitionManager {
                     else if(command.equals("D")) { enrollment = dropStudents(roster, enrollment, st1); }
                     else if(command.equals("S")) { enrollment = setScholarship(roster, enrollment, st1); }
                     else if(command.equals("PE")) { enrollment.print(); }
-                    else if(command.equals("PT")) {
-                        /* Joban's Part (Tuition Stuff) */
-                    }
+                    else if(command.equals("PT")) { enrollment.printTuition(roster); }
                     else if(command.equals("SE")) { enrollment.printGraduation(roster); }
                     else if(command.equals("P")) { roster.print(); }
                     else if(command.equals("PS")) { roster.printByStanding(); }

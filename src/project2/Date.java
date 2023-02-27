@@ -56,53 +56,33 @@ public class Date implements Comparable<Date> {
      **/
     public boolean isValid() {
         int balancer = month - 1;//off set month
-        if (year > CURRENT_YEAR) {
-            return false;
-        }
-        if (month < MINIMUM_MONTH || balancer > MAXIMUM_MONTH) {
-            return false;
-        }
-        if (day < MINIMUM_DAY || day > MAXIMUM_DAY) {
-            return false;
-        }
-        if (this.compareTo(new Date()) <= SAME) {
-            return false;
-        }
-        if(day < 0 || year < 0 || month < 0) {
-            return false;
-        }
-        if (day <= NOT_LEAP_YEAR_FEB) {
-            return true;
-        }
+        if (year > CURRENT_YEAR) { return false; }
+        if (month < MINIMUM_MONTH || balancer > MAXIMUM_MONTH) { return false; }
+        if (day < MINIMUM_DAY || day > MAXIMUM_DAY) { return false; }
+        if (this.compareTo(new Date()) <= SAME) { return false; }
+        if(day < 0 || year < 0 || month < 0) { return false; }
+        if (day <= NOT_LEAP_YEAR_FEB) { return true; }
         if (balancer == Calendar.FEBRUARY) {
             if (day > NOT_LEAP_YEAR_FEB) {
                 if (year % QUADRENNIAL == 0) {
                     if (year % CENTENNIAL == 0) {
                         if (year % QUARTERCENTENNIAL == 0) {
-                            if (day == LEAP_YEAR_FEB) {
-                                return true;
-                            }
+                            if (day == LEAP_YEAR_FEB) { return true; }
                             return false;
                         } else {
-                            if (day == LEAP_YEAR_FEB) {
-                                return false;
-                            }
+                            if (day == LEAP_YEAR_FEB) { return false; }
                         }
                         return true;
                     } else {
                         if (year % QUADRENNIAL == 0) {
-                            if (day == LEAP_YEAR_FEB) {
-                                return true;
-                            }
+                            if (day == LEAP_YEAR_FEB) { return true; }
                             return false;
                         }
                     }
                     return false;
                 } else {
                     if (year % QUADRENNIAL == 0) {
-                        if (day == LEAP_YEAR_FEB) {
-                            return true;
-                        }
+                        if (day == LEAP_YEAR_FEB) { return true; }
                         return false;
                     }
                 }
@@ -113,9 +93,7 @@ public class Date implements Comparable<Date> {
         if (day == MAXIMUM_DAY && ((balancer == Calendar.JANUARY) || (balancer == Calendar.MARCH) || (balancer == Calendar.MAY) || (balancer == Calendar.JULY) || (balancer == Calendar.AUGUST) || (balancer == Calendar.OCTOBER) || (balancer == Calendar.DECEMBER))) {
             return true;
         }
-        if (day == MAXIMUM_DAY - 1 && balancer != Calendar.FEBRUARY + 1) {
-            return true;
-        }
+        if (day == MAXIMUM_DAY - 1 && balancer != Calendar.FEBRUARY + 1) { return true; }
         return false;
     }//check if a date is a valid calendar date
 
