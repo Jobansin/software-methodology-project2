@@ -18,6 +18,10 @@ public class Resident extends Student{
         super(first, last, birth, m, credits);
     }
 
+    public Resident(String first, String last, String birth) {
+        super(first, last, birth);
+    }
+
     @Override
     public double tuitionDue(int creditsEnrolled) {
         return 0;
@@ -26,6 +30,25 @@ public class Resident extends Student{
     @Override
     public boolean isResident() {
         return true;
+    }
+
+    @Override
+    public String typeStudent() {
+        return "Resident";
+    }
+
+    /**
+     * This is a method that sets the scholarship amount for the Resident object.
+     *
+     * @author David Harianto, Joban Singh
+     */
+    public void setScholarship(int amount) {
+        scholarship = amount;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " (resident)";
     }
 
 }

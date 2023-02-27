@@ -22,4 +22,24 @@ public class International extends NonResident{
         super(first, last, birth, m, credits);
         isStudyAbroad = Boolean.parseBoolean(studyAbroad);
     }
+
+    @Override
+    public String typeStudent() {
+        if(isStudyAbroad)
+            return "International student study abroad";
+        else
+            return "International student";
+    }
+
+    public boolean isStudyAbroad() {
+        return isStudyAbroad;
+    }
+
+    @Override
+    public String toString() {
+        if(isStudyAbroad)
+            return super.toString() + " (non-resident) (international:studyAbroad)";
+        else
+            return super.toString() + " (non-resident) (international)";
+    }
 }

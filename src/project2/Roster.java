@@ -279,6 +279,21 @@ public class Roster {
     }
 
     /**
+     * This method returns the student object when found.
+     *
+     * @author David Harianto, Joban Singh
+     **/
+    public Student getStudent(Student student) {
+        for (int x = 0; x < size; x++) {
+            if (roster[x] != null) {
+                if (roster[x].equals(student))
+                    return roster[x];
+            }
+        }
+        return null;
+    }
+
+    /**
      * This method returns the last student.
      *
      * @author David Harianto, Joban Singh
@@ -298,7 +313,6 @@ public class Roster {
      * @author David Harianto, Joban Singh
      **/
     public void printSchool(String school) {
-        System.out.println(school.toLowerCase().equals("SAS"));
         if (checkEmpty()) {
             System.out.println("Student roster is empty!");
         } else if (!school.trim().toUpperCase().equals("SAS") && !school.trim().toUpperCase().equals("SOE")
@@ -306,8 +320,8 @@ public class Roster {
             System.out.println("School doesn't exist: " + school);
         } else {
             if (lastStudent() > 0) {
-                for (int i = 0; i < lastStudent() + 1; i++) {
-                    for (int j = 1; j < (lastStudent()); j++) {
+                for (int i = 0; i <= lastStudent(); i++) {
+                    for (int j = 1; j <= (lastStudent()); j++) {
                         if (roster[j - 1].compareTo(roster[j]) > 0) {
                             Student temporary = roster[j - 1];
                             roster[j - 1] = roster[j];
@@ -319,7 +333,7 @@ public class Roster {
             System.out.println("* Students in " + school + " *");
             for (int i = 0; i < size; i++) {
                 if (roster[i] != null) {
-                    if (roster[i].getMajor().getSchool().equals(school)) {
+                    if (roster[i].getMajor().getSchool().equals(school.trim().toUpperCase())) {
                         System.out.println(roster[i]);
                     }
                 }

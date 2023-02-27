@@ -119,6 +119,7 @@ public abstract class Student implements Comparable<Student> {
      This method returns the amount of credits completed.
      @author David Harianto, Joban Singh
      **/
+
     public int getCreditCompleted() {
         return this.creditCompleted;
     }
@@ -163,4 +164,6 @@ public abstract class Student implements Comparable<Student> {
 
     public abstract double tuitionDue(int creditsEnrolled); //polymorphism
     public abstract boolean isResident(); //polymorphism
+
+    public abstract String typeStudent();
 }

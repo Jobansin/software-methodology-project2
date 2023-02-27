@@ -23,4 +23,9 @@ public class TriState extends NonResident{
         return (state.equals("NY") || state.equals("CT"));
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " (non-resident) (tri-state:" + state + ")";
+    }
 }

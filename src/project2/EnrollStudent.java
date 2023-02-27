@@ -18,6 +18,14 @@ public class EnrollStudent {
     }
 
     /**
+     This method returns the number of credits that the student has enrolled.
+     @author David Harianto, Joban Singh
+     **/
+    public int getCreditsEnrolled() {
+        return creditsEnrolled;
+    }
+
+    /**
      This method checks if the student given is the same student.
      @author David Harianto, Joban Singh
      **/
@@ -27,7 +35,7 @@ public class EnrollStudent {
         if(this == object) {
             return true;
         }
-        if(!(object instanceof Student)) {
+        if(!(object instanceof EnrollStudent)) {
             return false;
         }
         EnrollStudent s = (EnrollStudent) object;
@@ -35,10 +43,26 @@ public class EnrollStudent {
     }
 
     /**
+     This method returns the profile.
+     @author David Harianto, Joban Singh
+     **/
+    public Profile getProfile() {
+        return profile;
+    }
+
+    /**
+     This method changes the credits of an enrolled student.
+     @author David Harianto, Joban Singh
+     **/
+    public void changeCreditsEnrolled(int credits) {
+        creditsEnrolled = credits;
+    }
+
+    /**
      This method returns the first name, last name, date of birth, and credits completed.
      @author David Harianto, Joban Singh
      **/
     public String toString() {
-        return profile + " credits completed: " + creditsEnrolled;
+        return profile + ": credits enrolled: " + creditsEnrolled;
     }
 }

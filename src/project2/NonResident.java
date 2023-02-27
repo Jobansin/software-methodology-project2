@@ -25,4 +25,14 @@ public class NonResident extends Student{
         return false;
     }
 
+    @Override
+    public String typeStudent() {
+        return "Non-Resident";
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " (non-resident)";
+    }
+
 }

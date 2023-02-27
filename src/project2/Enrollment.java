@@ -53,28 +53,21 @@ public class Enrollment {
      @author David Harianto, Joban Singh
      **/
     public void remove(EnrollStudent enrollStudent) {
-        if(isEmpty()) {
-            System.out.println("Enrollment is empty!");
-        }
-        else if(!contains(enrollStudent)) {
-            System.out.println("Cannot enroll: " + enrollStudent + " is not in the roster.");
-        }
-        else {
-            // Get index of last student
-            int indexLastStudent = 0;
-            EnrollStudent lastStudent = null;
-            for (int x = 0; x < size; x++) {
-                if(enrollStudents[x] != null) {
-                    indexLastStudent = x;
-                    lastStudent = enrollStudents[x];
-                }
+        // Get index of last student
+        int indexLastStudent = 0;
+        EnrollStudent lastStudent = null;
+        for (int x = 0; x < size; x++) {
+            if(enrollStudents[x] != null) {
+                indexLastStudent = x;
+                lastStudent = enrollStudents[x];
             }
-            // Replace the removed student with the last student
-            for (int x = 0; x < size; x++) {
-                if(enrollStudents[x].equals(enrollStudent)) {
-                    enrollStudents[x] = lastStudent;
-                    break;
-                }
+        }
+        // Replace the removed student with the last student
+        for (int x = 0; x < size; x++) {
+            if(enrollStudents[x].equals(enrollStudent)) {
+                enrollStudents[x] = lastStudent;
+                enrollStudents[indexLastStudent] = null;
+                break;
             }
         }
     } //move the last one in the array to replace the deleting index position
@@ -96,6 +89,33 @@ public class Enrollment {
     }
 
     /**
+     This method returns the EnrollStudent object when found.
+     @author David Harianto, Joban Singh
+     **/
+    public EnrollStudent getStudent(EnrollStudent enrollStudent) {
+        for (int x = 0; x < size; x++) {
+            if (enrollStudents[x] != null) {
+                if (enrollStudents[x].equals(enrollStudent))
+                    return enrollStudents[x];
+            }
+        }
+        return null;
+    }
+
+    public void changeCredit(EnrollStudent enrollStudent, int credits){
+        if (!isEmpty()) {
+            for (int x = 0; x < size; x++) {
+                if (enrollStudents[x] != null) {
+                    if (enrollStudents[x].equals(enrollStudent)) {
+                        enrollStudents[x].changeCreditsEnrolled(credits);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      This method returns if the array is empty or not.
      @author David Harianto, Joban Singh
      **/
@@ -109,13 +129,44 @@ public class Enrollment {
     }
 
     /**
+     This method prints out all the EnrollStudent objects in the array that are eligible for graduation.
+     @author David Harianto, Joban Singh
+     **/
+    public void printGraduation(Roster roster) {
+        if(isEmpty())
+            System.out.println("Enrollment is empty!");
+        else {
+            System.out.println("** list of students eligible for graduation **");
+            for (int i = 0; i < size; i++) {
+                if (enrollStudents[i] != null) {
+                    int totalCredits = enrollStudents[i].getCreditsEnrolled() + roster.getStudent(
+                            new Resident(enrollStudents[i].getProfile().getFirstname(), enrollStudents[i].getProfile().getLastname(),
+                                    enrollStudents[i].getProfile().getDob().toString())).getCreditCompleted();
+                    if (totalCredits >= 120) {
+                        roster.getStudent(new Resident(enrollStudents[i].getProfile().getFirstname(), enrollStudents[i].getProfile().getLastname(),
+                                enrollStudents[i].getProfile().getDob().toString())).setCredit(totalCredits);
+                        System.out.println(roster.getStudent(new Resident(enrollStudents[i].getProfile().getFirstname(), enrollStudents[i].getProfile().getLastname(),
+                                enrollStudents[i].getProfile().getDob().toString())));
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      This method prints out all the EnrollStudent objects in the array unsorted.
      @author David Harianto, Joban Singh
      **/
     public void print() {
-        for(int i = 0; i < size; i++) {
-            if(enrollStudents[i] != null)
-                System.out.println(enrollStudents[i]);
+        if(isEmpty())
+            System.out.println("Enrollment is empty!");
+        else {
+            System.out.println("** Enrollment **");
+            for (int i = 0; i < size; i++) {
+                if (enrollStudents[i] != null)
+                    System.out.println(enrollStudents[i]);
+            }
+            System.out.println("* End of enrollment *");
         }
     } //print the array as is without sorting
 }
